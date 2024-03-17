@@ -27,8 +27,6 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = (
             "id",
-            "category",
-            "podcategory",
             "user",
             "name",
             "slug",

@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-mhnl)!@b6)!c6jik)pppj)1+dmacnh6l1esos*gnzr(!36io23
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -38,13 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'product',
-    'Category',
-    'channels',
-    "twilio",
     "rest_framework",
     "rest_framework_simplejwt",
     "drf_spectacular",
-    "corsheaders",
     "django_filters",
     "drf_yasg",
     "djoser",
@@ -137,15 +133,13 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATIC_URL = "/static/"
-STATIC_ROOT = "/usr/src/app/static"
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = "/usr/src/app/media"
 
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:8000',  # Укажите свой хост и порт Redis
+        'LOCATION': 'redis://127.0.0.1:6379',  # Укажите свой хост и порт Redis
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }

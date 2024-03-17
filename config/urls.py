@@ -27,7 +27,6 @@ from drf_spectacular.views import (
 )
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("category/", include("Category.urls")),
     path("products/", include("product.urls")),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path("", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
@@ -38,8 +37,3 @@ urlpatterns = [
     ),
 ]
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

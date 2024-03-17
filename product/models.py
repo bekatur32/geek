@@ -1,15 +1,8 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-from Category.models import Category, PodCategory
 from django.contrib.auth.models import User
 
 class Product(models.Model):
-    category = models.ForeignKey(
-        Category, related_name="products", on_delete=models.CASCADE
-    )
-    podcategory = models.ForeignKey(
-        PodCategory, related_name="pod_products", on_delete=models.CASCADE
-    )
     user = models.ForeignKey(
         User,
         related_name="products",
